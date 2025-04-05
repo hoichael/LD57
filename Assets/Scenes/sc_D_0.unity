@@ -580,6 +580,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refs: {fileID: 2079012244}
   move_force_ground: 50
+  move_force_air: 20
+  drag_ground: 5
+  drag_air: 1.2
 --- !u!114 &412763678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,9 +848,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!4 &1221745702
 Transform:
   m_ObjectHideFlags: 0
