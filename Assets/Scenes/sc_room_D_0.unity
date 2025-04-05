@@ -844,6 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5906cf9a235d926489bc43e398163f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  death_exit_delay: 1
 --- !u!4 &985292090
 Transform:
   m_ObjectHideFlags: 0
@@ -889,6 +890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <pl_trans>k__BackingField: {fileID: 1221745702}
+  <g_manager>k__BackingField: {fileID: 985292089}
   <room_manager>k__BackingField: {fileID: 985292091}
 --- !u!1 &1121695982
 GameObject:

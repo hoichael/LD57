@@ -10,5 +10,7 @@ public class pl_death : MonoBehaviour
 
         dead = true;
         print("DEAD LOL");
+
+        g_refs.i.g_manager.handle_death();
     }
 }

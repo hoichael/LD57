@@ -1,12 +1,26 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class g_manager : MonoBehaviour
 {
+    [SerializeField] float death_exit_delay;
+
+    public void handle_death()
+    {
+        StartCoroutine(handle_death_exit_delay());
+    }
+
     void Update()
     {
         scene_reload();
+    }
+
+    IEnumerator handle_death_exit_delay()
+    {
+        yield return new WaitForSeconds(death_exit_delay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     #region DEV
