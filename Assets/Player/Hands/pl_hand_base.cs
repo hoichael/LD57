@@ -6,12 +6,21 @@ public class pl_hand_base : MonoBehaviour
     [Header("REFS")]
     [SerializeField] Animator anim;
 
-    [Header("SETTINGS")]
+    [Header("SETTINGS IDLE")]
     [SerializeField] protected string anim_name_idle;
+    [SerializeField] protected Vector3 idle_pos, idle_rot;
+
+    [Header("SETTINGS ACTIVE")]
     [SerializeField] protected string anim_name_active;
-    [SerializeField] protected string anim_name_reload;
+    [SerializeField] protected Vector3 active_pos, active_rot;
     [SerializeField] protected float active_duration;
+
+    [Header("SETTINGS RELOAD")]
+    [SerializeField] protected string anim_name_reload;
+    [SerializeField] protected Vector3 reload_pos, reload_rot;
     [SerializeField] protected float reload_duration;
+
+    [Header("SETTINGS MISCC")]
     [SerializeField] protected string ip_activator_name;
 
     protected pl_hand_state state_current;
@@ -46,22 +55,29 @@ public class pl_hand_base : MonoBehaviour
 
     protected virtual void init_active()
     {
-        anim.Play(anim_name_active);
+        init_generic(anim_name_active, active_pos, active_rot);
         timer_current = active_duration;
         state_current = pl_hand_state.active;
     }
 
     protected virtual void init_reload()
     {
-        anim.Play(anim_name_reload);
+        init_generic(anim_name_reload, reload_pos, reload_rot);
         timer_current = reload_duration;
         state_current = pl_hand_state.reload;
     }
 
     protected virtual void init_idle()
     {
-        anim.Play(anim_name_idle);
+        init_generic(anim_name_idle, idle_pos, idle_rot);
         state_current = pl_hand_state.idle;
+    }
+
+    protected virtual void init_generic(string anim_name, Vector3 pos, Vector3 rot)
+    {
+        anim.Play(anim_name);
+        anim.transform.localPosition = pos;
+        anim.transform.localRotation = Quaternion.Euler(rot);
     }
 
     protected virtual void handle_timer_active()
@@ -69,6 +85,8 @@ public class pl_hand_base : MonoBehaviour
         timer_current -= Time.deltaTime;
         if(timer_current <= 0)
         {
+            //Debug.Break();
+            //return;
             init_reload();
         }
     }
@@ -78,6 +96,8 @@ public class pl_hand_base : MonoBehaviour
         timer_current -= Time.deltaTime;
         if (timer_current <= 0)
         {
+            //Debug.Break();
+            //return;
             init_idle();
         }
     }
