@@ -12,6 +12,8 @@ public class pl_move : MonoBehaviour
     void FixedUpdate()
     {
         apply_move_ground(get_dir());
+
+        print("grounded? " + refs.groundcheck.is_grounded());
     }
 
     Vector3 get_dir()
