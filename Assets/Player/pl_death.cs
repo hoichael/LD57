@@ -3,6 +3,7 @@ using System.Collections;
 
 public class pl_death : MonoBehaviour
 {
+    [SerializeField] pl_refs refs;
     [SerializeField] pl_cam_rot cam_rot;
     [SerializeField] GameObject text;
     bool dead;
@@ -14,6 +15,8 @@ public class pl_death : MonoBehaviour
         dead = true;
         print("DEAD LOL");
         cam_rot.init_death_rot(pos_killer);
+
+        refs.rb.isKinematic = true;
 
         StartCoroutine(handle_text_delay());
 

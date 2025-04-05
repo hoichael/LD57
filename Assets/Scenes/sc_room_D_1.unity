@@ -757,6 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb7cf936bbd7874ca6528ccdc2bf141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  refs: {fileID: 2079012244}
   cam_rot: {fileID: 412763676}
   text: {fileID: 576231879}
 --- !u!114 &412763682
@@ -816,6 +817,10 @@ MonoBehaviour:
   reload_rot: {x: 3.35, y: 36.4, z: -1.2}
   reload_duration: 1
   ip_activator_name: Hand_L
+  mask_hit:
+    serializedVersion: 2
+    m_Bits: 8388608
+  col_halfextents: {x: 4, y: 4, z: 4}
 --- !u!1 &576231879
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,11 +2493,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4455957728198252489, guid: 4f7065cd8d81a8844a95ff09014d5a96, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9031612615000814045, guid: 4f7065cd8d81a8844a95ff09014d5a96, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -8.5
       objectReference: {fileID: 0}
     - target: {fileID: 9031612615000814045, guid: 4f7065cd8d81a8844a95ff09014d5a96, type: 3}
       propertyPath: m_LocalPosition.y
