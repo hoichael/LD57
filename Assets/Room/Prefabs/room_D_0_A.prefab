@@ -254,7 +254,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 04266d9b2b3d0ec4e93c9899fafbaffd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -422,6 +422,10 @@ PrefabInstance:
       propertyPath: room
       value: 
       objectReference: {fileID: 7854826782446590309}
+    - target: {fileID: 2475689858189445977, guid: 44f69557e65e01440bcbc647fac52ca4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e79ed22a0b137342a6d02364616119a, type: 2}
     - target: {fileID: 9147958035251373188, guid: 44f69557e65e01440bcbc647fac52ca4, type: 3}
       propertyPath: m_Name
       value: room_exit_col
