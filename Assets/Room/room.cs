@@ -16,7 +16,8 @@ public class room : MonoBehaviour
     public void on_exit_trigger()
     {
         print("ROOM EXIT! (from room)");
-        container.SetActive(false);
         g_refs.i.room_manager.on_room_exit();
+        //container.SetActive(false);
+        Destroy(gameObject);
     }
 }
