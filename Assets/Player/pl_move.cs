@@ -11,9 +11,15 @@ public class pl_move : MonoBehaviour
 
     void FixedUpdate()
     {
-        apply_move_ground(get_dir());
-
-        print("grounded? " + refs.groundcheck.is_grounded());
+        if (refs.groundcheck.is_grounded())
+        {
+            refs.gravity.enabled = false;
+            apply_move_ground(get_dir());
+        }
+        else
+        {
+            refs.gravity.enabled = true;
+        }
     }
 
     Vector3 get_dir()
