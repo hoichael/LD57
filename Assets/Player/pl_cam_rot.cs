@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class pl_cam_rot : MonoBehaviour
 {
     [Header("REFS")]
+    [SerializeField] pl_refs refs;
     [SerializeField] Transform cam_holder;
-    [SerializeField] Transform trans_orientation_ref;
 
     [Header("SETTINGS")]
     [SerializeField] float sens;
@@ -38,6 +38,6 @@ public class pl_cam_rot : MonoBehaviour
     {
         cam_holder.localRotation = Quaternion.Euler(rot_current_x, rot_current_y, 0);
 
-        trans_orientation_ref.rotation = Quaternion.Euler(0, rot_current_y, 0);
+        refs.trans_orientation_ref.rotation = Quaternion.Euler(0, rot_current_y, 0);
     }
 }
