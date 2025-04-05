@@ -7,4 +7,5 @@ public class pl_refs : MonoBehaviour
     [field: SerializeField] public LayerMask mask_solid { get; private set; }
     [field: SerializeField] public pl_groundcheck groundcheck { get; private set; }
     [field: SerializeField] public pl_gravity gravity { get; private set; }
+    [field: SerializeField] public Camera cam { get; private set; }
 }

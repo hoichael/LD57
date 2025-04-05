@@ -6,6 +6,11 @@ public class enemy : MonoBehaviour
     [SerializeField] float move_speed;
     [SerializeField] float pl_kill_dist;
 
+    public void handle_hit_by_pl_shoot()
+    {
+        Destroy(rb.gameObject);
+    }
+
     void FixedUpdate()
     {
         Vector3 dir_to_pl = (g_refs.i.pl_trans.position + Vector3.up) - transform.position;

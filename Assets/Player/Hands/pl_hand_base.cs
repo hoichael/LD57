@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 public class pl_hand_base : MonoBehaviour
 {
     [Header("REFS")]
-    [SerializeField] Animator anim;
+    [SerializeField] protected pl_refs refs;
+    [SerializeField] protected Animator anim;
 
     [Header("SETTINGS IDLE")]
     [SerializeField] protected string anim_name_idle;
