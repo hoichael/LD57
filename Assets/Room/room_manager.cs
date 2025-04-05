@@ -11,7 +11,7 @@ public class room_manager : MonoBehaviour
 
     public void on_room_exit()
     {
-
+        print("ROOM EXIT! (from manager)");
     }
 
     void enter_new_room()

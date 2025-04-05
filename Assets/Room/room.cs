@@ -10,6 +10,7 @@ public class room : MonoBehaviour
 
     public void on_exit_trigger()
     {
-        print("EXIT!");
+        print("ROOM EXIT! (from room)");
+        g_refs.i.room_manager.on_room_exit();
     }
 }

@@ -809,8 +809,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 985292090}
-  - component: {fileID: 985292089}
   - component: {fileID: 985292091}
+  - component: {fileID: 985292089}
+  - component: {fileID: 985292092}
   m_Layer: 0
   m_Name: G
   m_TagString: Untagged
@@ -860,6 +861,20 @@ MonoBehaviour:
   list_layer:
   - list_room:
     - {fileID: 1121695983}
+--- !u!114 &985292092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985292088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0090c0ba5d3d613479c15508e1d7f0a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <pl_trans>k__BackingField: {fileID: 1221745702}
+  <room_manager>k__BackingField: {fileID: 985292091}
 --- !u!1 &1045962868
 GameObject:
   m_ObjectHideFlags: 0
