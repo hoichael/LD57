@@ -1,7 +1,10 @@
 using UnityEngine;
+using System.Collections;
 
 public class pl_death : MonoBehaviour
 {
+    [SerializeField] pl_cam_rot cam_rot;
+    [SerializeField] GameObject text;
     bool dead;
 
     public void kill_player(Vector3 pos_killer)
@@ -10,7 +13,17 @@ public class pl_death : MonoBehaviour
 
         dead = true;
         print("DEAD LOL");
+        cam_rot.init_death_rot(pos_killer);
+
+        StartCoroutine(handle_text_delay());
 
         g_refs.i.g_manager.handle_death();
+    }
+
+    IEnumerator handle_text_delay()
+    {
+        yield return new WaitForSeconds(1);
+        text.SetActive(true);
+        // also play some sfx
     }
 }

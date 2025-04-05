@@ -12,16 +12,30 @@ public class pl_cam_rot : MonoBehaviour
 
     float rot_current_x, rot_current_y;
 
+    Quaternion death_rot_target;
+
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
+    public void init_death_rot(Vector3 pos_target)
+    {
+        death_rot_target = Quaternion.LookRotation(pos_target - cam_holder.position, Vector3.up);
+    }
+
     void Update()
     {
-        handle_input();
-        apply_rotation();
+        if(death_rot_target.eulerAngles != Vector3.zero) // l0l
+        {
+            exec_death_rot();
+        }
+        else
+        {
+            handle_input();
+            apply_rotation();
+        }
     }
 
     void handle_input()
@@ -39,5 +53,10 @@ public class pl_cam_rot : MonoBehaviour
         cam_holder.localRotation = Quaternion.Euler(rot_current_x, rot_current_y, 0);
 
         refs.trans_orientation_ref.rotation = Quaternion.Euler(0, rot_current_y, 0);
+    }
+
+    void exec_death_rot()
+    {
+        cam_holder.rotation = Quaternion.Slerp(cam_holder.rotation, death_rot_target, 12 * Time.deltaTime);
     }
 }

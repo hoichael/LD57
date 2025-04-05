@@ -6,6 +6,8 @@ public class enemy : MonoBehaviour
     [SerializeField] float move_speed;
     [SerializeField] float pl_kill_dist;
 
+    bool killed_pl;
+
     public void handle_hit_by_pl_shoot()
     {
         Destroy(rb.gameObject);
@@ -13,11 +15,14 @@ public class enemy : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (killed_pl) return;
+
         Vector3 dir_to_pl = (g_refs.i.pl_trans.position + Vector3.up) - transform.position;
     
         if(dir_to_pl.magnitude < pl_kill_dist)
         {
             g_refs.i.pl_trans.GetComponentInChildren<pl_death>().kill_player(transform.position);
+            rb.linearVelocity = Vector3.zero;
         }
         else
         {
