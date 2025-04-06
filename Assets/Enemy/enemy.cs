@@ -17,7 +17,6 @@ public class enemy : MonoBehaviour
 
     public void handle_hit_by_pl_push(Vector3 dir)
     {
-        print("GFDFGDFGDFGDFG");
         currently_being_pushed = true;
         rb.AddForce(dir.normalized * 20, ForceMode.Impulse);
         rb.AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * 5, ForceMode.Impulse);
