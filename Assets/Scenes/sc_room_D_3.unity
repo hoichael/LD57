@@ -1454,6 +1454,8 @@ MonoBehaviour:
   refs: {fileID: 2079012244}
   cam_holder: {fileID: 1797408552}
   sens: 0.1
+  sens_min: 0.005
+  sens_max: 2
 --- !u!114 &412763677
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,8 @@ public class pl_cam_rot : MonoBehaviour
 
     [Header("SETTINGS")]
     [SerializeField] float sens;
+    [SerializeField] float sens_min;
+    [SerializeField] float sens_max;
 
     float rot_current_x, rot_current_y;
 
@@ -43,6 +45,8 @@ public class pl_cam_rot : MonoBehaviour
             handle_input();
             apply_rotation();
         }
+
+        handle_sens_change();
     }
 
     void handle_input()
@@ -65,6 +69,16 @@ public class pl_cam_rot : MonoBehaviour
     void exec_death_rot()
     {
         cam_holder.rotation = Quaternion.Slerp(cam_holder.rotation, death_rot_target, 12 * Time.deltaTime);
+    }
+
+    void handle_sens_change()
+    {
+        if(InputSystem.actions.FindAction("ScrollWheel").WasPressedThisFrame())
+        {
+            Vector2 delta = InputSystem.actions.FindAction("ScrollWheel").ReadValue<Vector2>();
+
+            sens = Mathf.Clamp(sens + delta.y * 0.01f, sens_min, sens_max);
+        }
     }
 
     IEnumerator handle_init_cam_lock_timer()
