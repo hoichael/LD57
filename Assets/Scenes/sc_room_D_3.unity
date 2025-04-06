@@ -1476,7 +1476,7 @@ MonoBehaviour:
   move_force_air: 20
   drag_ground: 5
   drag_air: 1.2
-  footsteps_interval: 0.5
+  footsteps_interval: 0.44
 --- !u!114 &412763678
 MonoBehaviour:
   m_ObjectHideFlags: 0

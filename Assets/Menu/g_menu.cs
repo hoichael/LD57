@@ -2,12 +2,18 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using TMPro;
 
 public class g_menu : MonoBehaviour
 {
     [SerializeField] List<Terrain> list_terrain;
     [SerializeField] Material mat_black;
     [SerializeField] float terrain_scroll_speed;
+
+    [SerializeField] TextMeshPro tmp_el;
+    [SerializeField] List<string> list_text;
+
+    int text_idx_current;
 
     float terrain_size = 80;
     float terrain_scroll_breakpoint;
@@ -23,17 +29,15 @@ public class g_menu : MonoBehaviour
         }
 
         terrain_scroll_breakpoint = (terrain_size + 10) * -1;
+
+        tmp_el.text = list_text[text_idx_current];
     }
 
     void Update()
     {
-        if(InputSystem.actions.FindAction("Enter").WasPressedThisFrame())
-        {
-            SceneManager.LoadScene(1);
-        }
-
         handle_terrain_scroll();
         handle_game_quit();
+        handle_text();
     }
 
     void handle_game_quit()
@@ -56,6 +60,23 @@ public class g_menu : MonoBehaviour
             list_terrain[idx_terrain_front].transform.position = list_terrain[idx_terrain_back].transform.position + Vector3.forward * terrain_size;
 
             (idx_terrain_front, idx_terrain_back) = (idx_terrain_back, idx_terrain_front);
+        }
+    }
+
+    void handle_text()
+    {
+        if (InputSystem.actions.FindAction("Any").WasPressedThisFrame())
+        {
+            text_idx_current++;
+
+            if(text_idx_current >= list_text.Count)
+            {
+                SceneManager.LoadScene(1);
+            }
+            else
+            {
+                tmp_el.text = list_text[text_idx_current];
+            }
         }
     }
 }
