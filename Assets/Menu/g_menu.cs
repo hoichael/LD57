@@ -9,6 +9,17 @@ public class g_menu : MonoBehaviour
         if(InputSystem.actions.FindAction("Enter").WasPressedThisFrame())
         {
             SceneManager.LoadScene(1);
-        }    
+        }
+
+        handle_game_quit();
     }
+
+    void handle_game_quit()
+    {
+        if (InputSystem.actions.FindAction("Exit").WasPressedThisFrame())
+        {
+            Application.Quit();
+        }
+    }
+
 }
