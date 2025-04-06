@@ -1,16 +1,23 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class pl_move : MonoBehaviour
 {
     [Header("REFS")]
     [SerializeField] pl_refs refs;
+    [SerializeField] List<AudioSource> list_footsteps_src;
 
     [Header("SETTINGS")]
     [SerializeField] float move_force_ground;
     [SerializeField] float move_force_air;
 
     [SerializeField] float drag_ground, drag_air;
+
+    [SerializeField] float footsteps_interval;
+
+    int footstep_last_idx;
+    float footstep_last_time;
 
     void FixedUpdate()
     {
@@ -51,6 +58,19 @@ public class pl_move : MonoBehaviour
         else
         {
             refs.rb.AddForce(dir * move_force_ground);
+
+            if(Time.time - footstep_last_time > footsteps_interval)
+            {
+                footstep_last_idx++;
+
+                if(footstep_last_idx == list_footsteps_src.Count)
+                {
+                    footstep_last_idx = 0;
+                }
+
+                list_footsteps_src[footstep_last_idx].Play();
+                footstep_last_time = Time.time;
+            }
         }
     }
 

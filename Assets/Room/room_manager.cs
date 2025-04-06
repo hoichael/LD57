@@ -12,7 +12,7 @@ public class room_manager : MonoBehaviour
     [SerializeField] Vector2 DEV_init_room_override;
 
     int layer_current = -1;
-    int layer_max = 11;
+    int layer_max = 7;
 
     void Start()
     {
