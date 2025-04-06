@@ -1010,25 +1010,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5541026615276323701}
     m_Modifications:
-    - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 44
-      objectReference: {fileID: 0}
-    - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
-      propertyPath: m_LocalPosition.x
+    - target: {fileID: 1296684196603662438, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -44
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1065,6 +1069,10 @@ PrefabInstance:
     - target: {fileID: 7916590053072930034, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
       propertyPath: m_Name
       value: Exit Tunnel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8589718578132253801, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

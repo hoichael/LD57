@@ -516,9 +516,9 @@ Transform:
   m_Children:
   - {fileID: 3798873987317585460}
   - {fileID: 5541026615276323701}
-  - {fileID: 8488632527345025541}
   - {fileID: 7305642865399322089}
   - {fileID: 6297585163063469874}
+  - {fileID: 9075384675320657253}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7854826782446590309
@@ -963,7 +963,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &2607335444967311081
+--- !u!1001 &3175193651424211337
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -972,28 +972,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 7150187746954768066}
     m_Modifications:
     - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 44
-      objectReference: {fileID: 0}
-    - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 96.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1025,17 +1013,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7916590053072930034, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
       propertyPath: m_Name
-      value: Exit Tunnel
+      value: room_exit_tunnel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
---- !u!4 &8488632527345025541 stripped
+--- !u!4 &9075384675320657253 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5900475870496539884, guid: 29b6f6ef6212a8941af4fcae66a7147f, type: 3}
-  m_PrefabInstance: {fileID: 2607335444967311081}
+  m_PrefabInstance: {fileID: 3175193651424211337}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4693544309473200096
 PrefabInstance:
