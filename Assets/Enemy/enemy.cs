@@ -4,6 +4,7 @@ using System.Collections;
 public class enemy : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
+    [SerializeField] g_fx fx_death;
     [SerializeField] float move_speed;
     [SerializeField] float pl_kill_dist;
 
@@ -12,6 +13,8 @@ public class enemy : MonoBehaviour
 
     public void handle_hit_by_pl_shoot()
     {
+        g_fx instance = Instantiate(fx_death, transform.position, Quaternion.identity);
+        instance.init();
         Destroy(rb.gameObject);
     }
 
