@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7691709837839967321}
   fx_death: {fileID: 7737007219299336775, guid: 90a188f93b85ad543b59410aaa002e46, type: 3}
-  move_speed: 5
+  move_speed: 6
   pl_kill_dist: 2
   audiosrc: {fileID: 7575964719706741673}
   pl_chase_dist: 50

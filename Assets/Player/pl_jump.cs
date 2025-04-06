@@ -5,6 +5,7 @@ public class pl_jump : MonoBehaviour
 {
     [Header("REFS")]
     [SerializeField] pl_refs refs;
+    [SerializeField] AudioSource audiosrc;
 
     [Header("SETTINGS")]
     [SerializeField] float force;
@@ -14,6 +15,7 @@ public class pl_jump : MonoBehaviour
         if (InputSystem.actions.FindAction("Jump").WasPressedThisFrame() && refs.groundcheck.is_grounded())
         {
             exec_jump();
+            audiosrc.Play();
         }
     }
 
