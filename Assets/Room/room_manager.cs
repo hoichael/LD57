@@ -28,6 +28,13 @@ public class room_manager : MonoBehaviour
         room room_new = Instantiate(list_layer[layer_current].list_room[idx_random], Vector3.zero, Quaternion.identity);
         room_new.init();     
         g_refs.i.pl_trans.GetComponent<Rigidbody>().position = room_new.trans_pl_spawn_ref.position;
+
+        set_new_cam_depth();
+    }
+
+    void set_new_cam_depth()
+    {
+        g_refs.i.pl_cam_depth.set_depth_base(15, true);
     }
 }
 

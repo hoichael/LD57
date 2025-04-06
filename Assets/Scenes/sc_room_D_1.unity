@@ -645,6 +645,7 @@ GameObject:
   - component: {fileID: 412763681}
   - component: {fileID: 412763682}
   - component: {fileID: 412763683}
+  - component: {fileID: 412763684}
   m_Layer: 15
   m_Name: Systems
   m_TagString: Untagged
@@ -681,7 +682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refs: {fileID: 2079012244}
   cam_holder: {fileID: 1797408552}
-  sens: 0.2
+  sens: 0.1
 --- !u!114 &412763677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,6 +822,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8388608
   col_halfextents: {x: 4, y: 4, z: 4}
+--- !u!114 &412763684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412763674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6834de560f0711143a2183747b1854a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 330585545}
+  curve_bounce:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  linear_transition_speed: 1.5
+  bounce_transition_speed: 1.3
 --- !u!1 &576231879
 GameObject:
   m_ObjectHideFlags: 0
@@ -6206,6 +6228,7 @@ MonoBehaviour:
   <pl_trans>k__BackingField: {fileID: 1221745702}
   <g_manager>k__BackingField: {fileID: 985292089}
   <room_manager>k__BackingField: {fileID: 985292091}
+  <pl_cam_depth>k__BackingField: {fileID: 412763684}
 --- !u!1 &1121695982
 GameObject:
   m_ObjectHideFlags: 0

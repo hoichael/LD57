@@ -18,6 +18,7 @@ public class enemy : MonoBehaviour
     {
         g_fx instance = Instantiate(fx_death, transform.position, Quaternion.identity);
         instance.init();
+        g_refs.i.pl_cam_depth.init_transition_bounce(g_refs.i.pl_cam_depth.get_depth_base() * 5);
         Destroy(rb.gameObject);
     }
 
