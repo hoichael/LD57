@@ -233,6 +233,7 @@ MonoBehaviour:
   move_speed: 5
   pl_kill_dist: 2
   audiosrc: {fileID: 7575964719706741673}
+  pl_chase_dist: 50
 --- !u!1001 &5463773599081816701
 PrefabInstance:
   m_ObjectHideFlags: 0

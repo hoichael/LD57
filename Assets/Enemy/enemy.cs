@@ -8,9 +8,12 @@ public class enemy : MonoBehaviour
     [SerializeField] float move_speed;
     [SerializeField] float pl_kill_dist;
     [SerializeField] AudioSource audiosrc;
+    [SerializeField] float pl_chase_dist;
 
     bool killed_pl;
     bool currently_being_pushed;
+
+    bool aggroed;
 
     bool played_idle_sfx;
 
@@ -41,11 +44,25 @@ public class enemy : MonoBehaviour
 
         Vector3 dir_to_pl = (g_refs.i.pl_trans.position + Vector3.up) - transform.position;
 
+        float dist_to_pl = dir_to_pl.magnitude;
+
+        if(!aggroed)
+        {
+            if(dist_to_pl > pl_chase_dist)
+            {
+                return;
+            }
+            else
+            {
+                aggroed = true;
+            }
+        }
+
         rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(dir_to_pl, Vector3.up), 8 * Time.deltaTime);
 
         if (killed_pl) return;
     
-        if(dir_to_pl.magnitude < pl_kill_dist)
+        if(dist_to_pl < pl_kill_dist)
         {
             g_refs.i.pl_trans.GetComponentInChildren<pl_death>().kill_player(transform.position);
             rb.linearVelocity = Vector3.zero;
@@ -55,7 +72,7 @@ public class enemy : MonoBehaviour
             rb.AddForce(dir_to_pl.normalized * move_speed);
         
             
-            if(!played_idle_sfx && dir_to_pl.magnitude < pl_kill_dist * 5)
+            if(!played_idle_sfx && dist_to_pl < pl_kill_dist * 5)
             {
                 audiosrc.Play();
                 played_idle_sfx = true;
