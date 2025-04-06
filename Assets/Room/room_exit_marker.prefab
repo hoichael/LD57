@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: ce39a689af00bd94eabc142b6b227c67, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 1e9e77d0799e15c4cae101b80ba96c9a, type: 2}
+      objectReference: {fileID: 2100000, guid: 80ba601f825f6724eac34dd3844b8ad2, type: 2}
     - target: {fileID: 919132149155446097, guid: ce39a689af00bd94eabc142b6b227c67, type: 3}
       propertyPath: m_Name
       value: room_exit_marker
