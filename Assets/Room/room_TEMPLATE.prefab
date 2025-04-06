@@ -331,7 +331,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 3130875807135745126}
+  list_terrain: []
   <trans_pl_spawn_ref>k__BackingField: {fileID: 3965145335345651224}
+  mat_terrain: {fileID: 2100000, guid: 04266d9b2b3d0ec4e93c9899fafbaffd, type: 2}
 --- !u!1 &4393214904119512079
 GameObject:
   m_ObjectHideFlags: 0
