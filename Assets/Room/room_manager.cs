@@ -5,9 +5,11 @@ public class room_manager : MonoBehaviour
 {
     [Header("SETTINGS")]
     [SerializeField] List<room_layer_list> list_layer = new List<room_layer_list>();
+    [SerializeField] AnimationCurve curve_depth_by_layer;
+    [SerializeField] float depth_max;
 
     int layer_current = -1;
-    int layer_max = 1337;
+    int layer_max = 11;
 
     void Start()
     {
@@ -34,7 +36,9 @@ public class room_manager : MonoBehaviour
 
     void set_new_cam_depth()
     {
-        g_refs.i.pl_cam_depth.set_depth_base(15, true);
+        float factor = (layer_max - layer_current) / layer_max;
+        float depth_new = depth_max * curve_depth_by_layer.Evaluate(factor);
+        g_refs.i.pl_cam_depth.set_depth_base(depth_new, true);
     }
 }
 
