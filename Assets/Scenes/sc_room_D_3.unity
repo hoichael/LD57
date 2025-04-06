@@ -6988,6 +6988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d7b1e020d037b46a6fa5605c599bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  init_override_data: {fileID: 11400000, guid: b78c0b68752f7a0499a483cb107cc854, type: 2}
   list_layer:
   - <list_room>k__BackingField:
     - {fileID: 7854826782446590309, guid: a83059b0a77fd074288408df25131b1b, type: 3}
@@ -7019,7 +7020,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   depth_max: 64
   cam: {fileID: 330585545}
-  DEV_init_room_override: {x: 0, y: 0}
 --- !u!114 &985292092
 MonoBehaviour:
   m_ObjectHideFlags: 0

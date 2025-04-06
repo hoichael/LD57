@@ -20,6 +20,7 @@ public class pl_death : MonoBehaviour
 
         StartCoroutine(handle_text_delay());
 
+        g_refs.i.room_manager.on_pl_death();
         g_refs.i.g_manager.handle_death();
     }
 
