@@ -714,7 +714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refs: {fileID: 2079012244}
   check_trans: {fileID: 1221745702}
-  check_radius: 0.5
+  check_radius: 0.4
 --- !u!114 &412763679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6210,7 +6210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list_layer:
   - <list_room>k__BackingField:
-    - {fileID: 7854826782446590309, guid: 61bf21e5a0d73474f849fcbde65e533c, type: 3}
+    - {fileID: 7854826782446590309, guid: a83059b0a77fd074288408df25131b1b, type: 3}
   - <list_room>k__BackingField:
     - {fileID: 7854826782446590309, guid: 08c29f367d6794c408fab77db935d5cc, type: 3}
   curve_depth_by_layer:
@@ -6226,8 +6226,17 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
+      time: 0.98893434
+      value: 0.9705885
+      inSlope: 1.9615254
+      outSlope: 1.9615254
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
-      value: 1
+      value: 0.4
       inSlope: 2
       outSlope: 2
       tangentMode: 0
@@ -6237,7 +6246,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  depth_max: 60
+  depth_max: 64
 --- !u!114 &985292092
 MonoBehaviour:
   m_ObjectHideFlags: 0

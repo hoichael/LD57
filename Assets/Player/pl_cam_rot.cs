@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class pl_cam_rot : MonoBehaviour
 {
@@ -14,10 +15,14 @@ public class pl_cam_rot : MonoBehaviour
 
     Quaternion death_rot_target;
 
+    bool cam_locked;
+
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        StartCoroutine(handle_init_cam_lock_timer());
     }
 
     public void init_death_rot(Vector3 pos_target)
@@ -33,6 +38,8 @@ public class pl_cam_rot : MonoBehaviour
         }
         else
         {
+            if (cam_locked) return;
+
             handle_input();
             apply_rotation();
         }
@@ -58,5 +65,12 @@ public class pl_cam_rot : MonoBehaviour
     void exec_death_rot()
     {
         cam_holder.rotation = Quaternion.Slerp(cam_holder.rotation, death_rot_target, 12 * Time.deltaTime);
+    }
+
+    IEnumerator handle_init_cam_lock_timer()
+    {
+        cam_locked = true;
+        yield return new WaitForSeconds(0.5f);
+        cam_locked = false;
     }
 }
