@@ -52,9 +52,19 @@ public class room_manager : MonoBehaviour
 
     void set_new_cam_depth()
     {
+        g_refs.i.pl_cam_depth.set_depth_base(0.4f, true);
+
         float factor = ((float)layer_max - (float)layer_current) / (float)layer_max;
         float depth_new = depth_max * curve_depth_by_layer.Evaluate(factor);
-        g_refs.i.pl_cam_depth.set_depth_base(depth_new, true);
+
+        if(layer_current == 0)
+        {
+            g_refs.i.pl_cam_depth.set_depth_base(depth_new, true);
+        }
+        else
+        {
+            g_refs.i.pl_cam_depth.set_depth_base(depth_new, false);
+        }
     }
 }
 

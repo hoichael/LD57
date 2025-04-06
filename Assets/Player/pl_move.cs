@@ -43,7 +43,7 @@ public class pl_move : MonoBehaviour
     {
         if(dir == Vector3.zero)
         {
-            if(refs.rb.linearVelocity.magnitude < 0.3f && refs.rb.linearVelocity.magnitude > 0.1f)
+            if(refs.rb.linearVelocity.magnitude < 0.25f && refs.rb.linearVelocity.magnitude > 0.1f)
             {
                 refs.rb.linearVelocity = Vector3.zero;
             }

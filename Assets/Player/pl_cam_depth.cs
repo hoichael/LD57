@@ -60,7 +60,7 @@ public class pl_cam_depth : MonoBehaviour
             bounce_depth_target,
             Mathf.PingPong(bounce_factor_current, 0.5f)
             );
-        print(bounce_factor_current);
+
         cam.farClipPlane = depth_new;
 
         if(bounce_factor_current == 1)
