@@ -72,7 +72,7 @@ public class enemy : MonoBehaviour
             rb.AddForce(dir_to_pl.normalized * move_speed);
         
             
-            if(!played_idle_sfx && dist_to_pl < pl_kill_dist * 5)
+            if(!played_idle_sfx && dist_to_pl < pl_kill_dist * 4.5f)
             {
                 audiosrc.Play();
                 played_idle_sfx = true;
