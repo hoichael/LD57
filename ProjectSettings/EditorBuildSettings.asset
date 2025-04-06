@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/menu.unity
     guid: a7059f6a3524629448dd370845826fa1
   - enabled: 1
-    path: Assets/Scenes/sc_room_D_2.unity
-    guid: e025b796cbbbfa145b1078b491c51808
+    path: Assets/Scenes/sc_room_D_3.unity
+    guid: de344cf1c0c47844eb876176957737fa
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
