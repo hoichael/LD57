@@ -7,9 +7,12 @@ public class enemy : MonoBehaviour
     [SerializeField] g_fx fx_death;
     [SerializeField] float move_speed;
     [SerializeField] float pl_kill_dist;
+    [SerializeField] AudioSource audiosrc;
 
     bool killed_pl;
     bool currently_being_pushed;
+
+    bool played_idle_sfx;
 
     public void handle_hit_by_pl_shoot()
     {
@@ -49,6 +52,13 @@ public class enemy : MonoBehaviour
         else
         {
             rb.AddForce(dir_to_pl.normalized * move_speed);
+        
+            
+            if(!played_idle_sfx && dir_to_pl.magnitude < pl_kill_dist * 5)
+            {
+                audiosrc.Play();
+                played_idle_sfx = true;
+            }
         }
     }
 
