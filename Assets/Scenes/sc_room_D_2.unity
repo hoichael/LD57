@@ -6212,7 +6212,7 @@ MonoBehaviour:
   - <list_room>k__BackingField:
     - {fileID: 7854826782446590309, guid: a83059b0a77fd074288408df25131b1b, type: 3}
   - <list_room>k__BackingField:
-    - {fileID: 7854826782446590309, guid: 08c29f367d6794c408fab77db935d5cc, type: 3}
+    - {fileID: 7854826782446590309, guid: e46a196c161618940bf8b765097e8141, type: 3}
   curve_depth_by_layer:
     serializedVersion: 2
     m_Curve:
@@ -6247,6 +6247,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   depth_max: 64
+  cam: {fileID: 330585545}
+  DEV_init_room_override: {x: 0, y: 0}
 --- !u!114 &985292092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6296,6 +6298,7 @@ MonoBehaviour:
   list_terrain: []
   <trans_pl_spawn_ref>k__BackingField: {fileID: 1287254832}
   mat_terrain: {fileID: 0}
+  <color_cam_bg>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1121695984
 Transform:
   m_ObjectHideFlags: 0
@@ -7104,6 +7107,7 @@ MonoBehaviour:
   list_terrain: []
   <trans_pl_spawn_ref>k__BackingField: {fileID: 1306592202}
   mat_terrain: {fileID: 0}
+  <color_cam_bg>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1890113908
 Transform:
   m_ObjectHideFlags: 0
@@ -7543,7 +7547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4455957728198252489, guid: 4f7065cd8d81a8844a95ff09014d5a96, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9031612615000814045, guid: 4f7065cd8d81a8844a95ff09014d5a96, type: 3}
       propertyPath: m_LocalPosition.x

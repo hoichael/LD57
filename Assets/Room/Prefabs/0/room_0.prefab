@@ -386,6 +386,7 @@ MonoBehaviour:
   - {fileID: 6627473354270537246}
   <trans_pl_spawn_ref>k__BackingField: {fileID: 3965145335345651224}
   mat_terrain: {fileID: 2100000, guid: 04266d9b2b3d0ec4e93c9899fafbaffd, type: 2}
+  <color_cam_bg>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &3132750568121258557
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +414,7 @@ Transform:
   m_GameObject: {fileID: 3132750568121258557}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40, y: 0, z: -40}
+  m_LocalPosition: {x: -40, y: 0.1, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1026,7 +1027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7649144894347057631, guid: 494651155e150304aba76b9b0f78bf60, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7649144894347057631, guid: 494651155e150304aba76b9b0f78bf60, type: 3}
       propertyPath: m_LocalPosition.z

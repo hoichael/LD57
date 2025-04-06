@@ -41,7 +41,17 @@ public class pl_move : MonoBehaviour
 
     void apply_move_ground(Vector3 dir)
     {
-        refs.rb.AddForce(dir * move_force_ground);
+        if(dir == Vector3.zero)
+        {
+            if(refs.rb.linearVelocity.magnitude < 0.3f && refs.rb.linearVelocity.magnitude > 0.1f)
+            {
+                refs.rb.linearVelocity = Vector3.zero;
+            }
+        }
+        else
+        {
+            refs.rb.AddForce(dir * move_force_ground);
+        }
     }
 
     void apply_move_air(Vector3 dir)
