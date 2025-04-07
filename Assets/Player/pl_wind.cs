@@ -167,14 +167,12 @@ public class pl_wind : MonoBehaviour
 
         if (factor > 0.97f)
         {
-            if(killed_en)
-            {
-                sfx_release_default.volume = 1f;
-                sfx_release_default.pitch = 1f;
+            sfx_release_default.volume = 1f;
+            sfx_release_default.pitch = 1f;
 
-                sfx_release_default.Play();
-            }
-            else
+            sfx_release_default.Play();
+
+            if (!killed_en)
             {
                 sfx_release_overcharged.Play();
             }

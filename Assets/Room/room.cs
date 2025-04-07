@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class room : MonoBehaviour
 {
@@ -31,12 +32,14 @@ public class room : MonoBehaviour
         }    
     }
 
-    public void init()
+    public virtual void init()
     {
         container.SetActive(true);
+
+        bgm_manager.i.pinglol(this.gameObject.name);
     }
 
-    public void on_exit_trigger()
+    public virtual void on_exit_trigger()
     {
         print("ROOM EXIT! (from room)");
         g_refs.i.room_manager.on_room_exit();
