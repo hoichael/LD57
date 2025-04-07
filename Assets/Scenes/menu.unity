@@ -593,11 +593,18 @@ MonoBehaviour:
   terrain_scroll_speed: 3.33
   tmp_el: {fileID: 1960984937}
   list_text:
-  - '- Press Any Key <br>lol'
-  - riverrun, past Eve and Adam's, from swerve of shore to bend of bay
-  - brings us by a commodius vicus of recirculation back to Howth Castle and Environs
-  - . . .
-  - hf =)
+  - Press Any Key
+  - SCROLL - Adjust Mouse Sens <br>WASD - Move <br>SPACE - Jump<br>LMB - Attack
+  - Venture forth in search of The Light.
+  - Venture forth in search of The Light. <br>Beware The Faces.
+  - Venture forth in search of The Light. <br>Beware The Faces. <br>Their touch is
+    your end.
+  - Hold LMB to channel The Winds.
+  - Hold LMB to channel The Winds. <br>Release LMB to repel The Faces.
+  - Overcharging LMB results in a tighter area of effect but brings upon a gust so
+    sharp it may vanquish A Face.
+  - Vanquishing A Face briefly amplifies the depth of your vision.
+  - Can you descend beyond The Depths and reach The Light?
 --- !u!4 &757766805
 Transform:
   m_ObjectHideFlags: 0
