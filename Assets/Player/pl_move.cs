@@ -39,7 +39,8 @@ public class pl_move : MonoBehaviour
             
             if(!grounded_last_frame)
             {
-                hit_ground_src.Play();
+                //hit_ground_src.Play();
+                handle_footstep_sfx();
             }
 
             grounded_last_frame = true;

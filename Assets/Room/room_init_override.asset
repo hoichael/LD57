@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b4b5a2ce35fbb43bb244ed1c3f6a02, type: 3}
   m_Name: room_init_override
   m_EditorClassIdentifier: 
-  layer: 3
+  layer: 1
   room: 0

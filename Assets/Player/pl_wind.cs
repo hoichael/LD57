@@ -140,7 +140,7 @@ public class pl_wind : MonoBehaviour
                 float distance_factor = Vector3.Distance(refs.cam.transform.position, arr_col_check[i].transform.position) / (col_depth_halfextents * 2);
 
                 force *= (1 - distance_factor);
-                factor -= distance_factor;
+                factor -= (distance_factor * 0.9f);
 
                 arr_col_check[i].GetComponentInChildren<enemy>().handle_hit_by_pl_push(refs.cam.transform.forward, force, factor);
             }

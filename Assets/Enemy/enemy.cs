@@ -23,7 +23,7 @@ public class enemy : MonoBehaviour
     {
         g_fx instance = Instantiate(fx_death, transform.position, Quaternion.identity);
         instance.init();
-        g_refs.i.pl_cam_depth.init_transition_bounce(g_refs.i.pl_cam_depth.get_depth_base() * 5);
+        g_refs.i.pl_cam_depth.init_transition_bounce(g_refs.i.pl_cam_depth.get_depth_base() * 2.5f);
         Destroy(rb.gameObject);
     }
 
@@ -38,9 +38,9 @@ public class enemy : MonoBehaviour
         Vector3 dir_to_pl = (g_refs.i.pl_trans.position - transform.position).normalized;
         rb.AddForce(-dir_to_pl.normalized * (force * 0.5f), ForceMode.Impulse);
 
-        if(intensity_factor > 0.1f)
+        if(intensity_factor > 0.09f)
         {
-            rb.AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * (force * 0.25f), ForceMode.Impulse);
+            rb.AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * (force * 0.27f), ForceMode.Impulse);
         }
 
         StartCoroutine(handle_push_duration(push_duration_max * intensity_factor));

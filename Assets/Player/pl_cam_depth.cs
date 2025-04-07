@@ -58,7 +58,7 @@ public class pl_cam_depth : MonoBehaviour
         float depth_new = Mathf.Lerp(
             depth_base,
             bounce_depth_target,
-            Mathf.PingPong(bounce_factor_current, 0.5f)
+            curve_bounce.Evaluate(Mathf.PingPong(bounce_factor_current, 0.5f))
             );
 
         cam.farClipPlane = depth_new;
