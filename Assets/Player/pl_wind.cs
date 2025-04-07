@@ -110,15 +110,22 @@ public class pl_wind : MonoBehaviour
         {
             float factor = charge_duration_current / charge_duration_max;
 
-            float force = Mathf.Clamp(knockback_max * factor, knockback_min, knockback_max);
-            force += Random.Range(-2f, 3f);
+            if(factor > 0.97f)
+            {
+                arr_col_check[i].GetComponentInChildren<enemy>().handle_hit_by_pl_shoot();
+            }
+            else
+            {
+                float force = Mathf.Clamp(knockback_max * factor, knockback_min, knockback_max);
+                force += Random.Range(-2f, 3f);
 
-            float distance_factor = Vector3.Distance(refs.cam.transform.position, arr_col_check[i].transform.position) / (col_depth_halfextents * 2);
+                float distance_factor = Vector3.Distance(refs.cam.transform.position, arr_col_check[i].transform.position) / (col_depth_halfextents * 2);
 
-            force *= (1 - distance_factor);
-            factor -= distance_factor;
+                force *= (1 - distance_factor);
+                factor -= distance_factor;
 
-            arr_col_check[i].GetComponentInChildren<enemy>().handle_hit_by_pl_push(refs.cam.transform.forward, force, factor);
+                arr_col_check[i].GetComponentInChildren<enemy>().handle_hit_by_pl_push(refs.cam.transform.forward, force, factor);
+            }
         }
     }
 

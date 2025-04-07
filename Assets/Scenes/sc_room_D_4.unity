@@ -1249,7 +1249,7 @@ MonoBehaviour:
   charge_duration_max: 1.5
   reticle_radius_min: 0.01
   reticle_radius_max: 0.2
-  cooldown_duration: 1.5
+  cooldown_duration: 1
   col_halfextents_min: 0.2
   col_halfextents_max: 2.8
   knockback_min: 10
