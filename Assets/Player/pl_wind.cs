@@ -115,8 +115,8 @@ public class pl_wind : MonoBehaviour
 
         if (factor < 0.97f)
         {
-            sfx_release_default.volume = Mathf.Lerp(0.1f, 0.4f, factor);
-            sfx_release_default.pitch = Mathf.Lerp(1.4f, 1f, factor);
+            sfx_release_default.volume = Mathf.Lerp(0.85f, 1f, factor);
+            sfx_release_default.pitch = Mathf.Lerp(0.88f, 1.05f, factor);
 
             sfx_release_default.Play();
         }
@@ -169,8 +169,8 @@ public class pl_wind : MonoBehaviour
         {
             if(killed_en)
             {
-                sfx_release_default.volume = 0.3f;
-                sfx_release_default.pitch = 1.2f;
+                sfx_release_default.volume = 1f;
+                sfx_release_default.pitch = 1f;
 
                 sfx_release_default.Play();
             }

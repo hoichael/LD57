@@ -101,7 +101,7 @@ public class enemy : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         currently_being_pushed = false;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(4);
 
         played_idle_sfx = false;
     }
