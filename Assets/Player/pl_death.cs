@@ -1,12 +1,15 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class pl_death : MonoBehaviour
 {
     [SerializeField] pl_refs refs;
     [SerializeField] pl_cam_rot cam_rot;
     [SerializeField] GameObject text;
+    [SerializeField] GameObject reticle;
+    [SerializeField] List<MonoBehaviour> list_script_to_disable;
     bool dead;
 
     public void kill_player(Vector3 pos_killer, bool instant)
@@ -24,6 +27,13 @@ public class pl_death : MonoBehaviour
         cam_rot.init_death_rot(pos_killer);
 
         refs.rb.isKinematic = true;
+
+        reticle.SetActive(false);
+
+        foreach(MonoBehaviour script in list_script_to_disable)
+        {
+            script.enabled = false;
+        }
 
         StartCoroutine(handle_text_delay());
 

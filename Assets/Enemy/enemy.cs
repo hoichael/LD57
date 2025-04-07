@@ -38,7 +38,7 @@ public class enemy : MonoBehaviour
         Vector3 dir_to_pl = (g_refs.i.pl_trans.position - transform.position).normalized;
         rb.AddForce(-dir_to_pl.normalized * (force * 0.5f), ForceMode.Impulse);
 
-        if(intensity_factor > 0.09f)
+        if(intensity_factor > 0.08f)
         {
             rb.AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * (force * 0.27f), ForceMode.Impulse);
         }

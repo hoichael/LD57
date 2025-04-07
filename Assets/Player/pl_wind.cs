@@ -131,6 +131,7 @@ public class pl_wind : MonoBehaviour
             if(factor > 0.97f)
             {
                 arr_col_check[i].GetComponentInChildren<enemy>().handle_hit_by_pl_shoot();
+                break;
             }
             else
             {
