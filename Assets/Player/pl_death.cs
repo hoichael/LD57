@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class pl_death : MonoBehaviour
 {
@@ -8,12 +9,18 @@ public class pl_death : MonoBehaviour
     [SerializeField] GameObject text;
     bool dead;
 
-    public void kill_player(Vector3 pos_killer)
+    public void kill_player(Vector3 pos_killer, bool instant)
     {
         if (dead) return;
 
         dead = true;
         print("DEAD LOL");
+
+        if(instant)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
         cam_rot.init_death_rot(pos_killer);
 
         refs.rb.isKinematic = true;

@@ -76,7 +76,7 @@ public class enemy : MonoBehaviour
     
         if(dist_to_pl < pl_kill_dist)
         {
-            g_refs.i.pl_trans.GetComponentInChildren<pl_death>().kill_player(transform.position);
+            g_refs.i.pl_trans.GetComponentInChildren<pl_death>().kill_player(transform.position, false);
             rb.linearVelocity = Vector3.zero;
         }
         else
