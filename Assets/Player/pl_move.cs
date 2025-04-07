@@ -19,12 +19,19 @@ public class pl_move : MonoBehaviour
     int footstep_last_idx;
     float footstep_last_time;
 
+    float drag_add_ground_current;
+
+    public void set_add_drag_ground(float value)
+    {
+        drag_add_ground_current = value;
+    }
+
     void FixedUpdate()
     {
         if (refs.groundcheck.is_grounded())
         {
             refs.gravity.enabled = false;
-            refs.rb.linearDamping = drag_ground;
+            refs.rb.linearDamping = drag_ground + drag_add_ground_current;
             apply_move_ground(get_dir());
         }
         else

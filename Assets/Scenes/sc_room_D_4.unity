@@ -1185,6 +1185,7 @@ MonoBehaviour:
   circle_renderer: {fileID: 1769721939}
   sfx_charge: {fileID: 0}
   list_sfx_release: []
+  move: {fileID: 412763677}
   curve_charge:
     serializedVersion: 2
     m_Curve:
@@ -1254,6 +1255,40 @@ MonoBehaviour:
   col_halfextents_max: 2.8
   knockback_min: 10
   knockback_max: 38
+  drag_add_max: 11
+  drag_curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.7956042
+      outSlope: 2.7956042
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.041614123
+    - serializedVersion: 3
+      time: 0.51070625
+      value: 0.92085105
+      inSlope: 0.60195667
+      outSlope: 0.60195667
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11473348
+      outWeight: 0.1762875
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.1453969
+      outSlope: -0.1453969
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.18304728
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   mask_hit:
     serializedVersion: 2
     m_Bits: 8388608
@@ -6797,7 +6832,7 @@ Rigidbody:
   m_GameObject: {fileID: 1221745699}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 3
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}

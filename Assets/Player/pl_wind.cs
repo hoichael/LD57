@@ -10,6 +10,7 @@ public class pl_wind : MonoBehaviour
     [SerializeField] ui_circle circle_renderer;
     [SerializeField] AudioSource sfx_charge;
     [SerializeField] List<AudioSource> list_sfx_release;
+    [SerializeField] pl_move move;
 
     [Header("SETTINGS")]
     [SerializeField] AnimationCurve curve_charge;
@@ -19,6 +20,8 @@ public class pl_wind : MonoBehaviour
     [SerializeField] float cooldown_duration;
     [SerializeField] float col_halfextents_min, col_halfextents_max;
     [SerializeField] float knockback_min, knockback_max;
+    [SerializeField] float drag_add_max;
+    [SerializeField] AnimationCurve drag_curve;
     [SerializeField] LayerMask mask_hit;
 
     const float col_depth_halfextents = 10; 
@@ -67,6 +70,15 @@ public class pl_wind : MonoBehaviour
         else
         {
             circle_renderer.update_circle(get_lerped_value(reticle_radius_min, reticle_radius_max));
+
+            float charge_factor = charge_duration_current / charge_duration_max;
+            float drag_ground_add = Mathf.Lerp(
+                0,
+                drag_add_max,
+                drag_curve.Evaluate(charge_factor)
+                );
+
+            move.set_add_drag_ground(drag_ground_add);
         }
     }
 
@@ -85,6 +97,8 @@ public class pl_wind : MonoBehaviour
         currently_charging = false;
         circle_renderer.gameObject.SetActive(false);
         cooldown_timer_current = 0;
+
+        move.set_add_drag_ground(0);
 
         float halfextents = get_lerped_value(col_halfextents_min, col_halfextents_max);
 
