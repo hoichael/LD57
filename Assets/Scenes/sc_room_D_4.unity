@@ -6716,6 +6716,8 @@ MonoBehaviour:
     - {fileID: 7854826782446590309, guid: e46a196c161618940bf8b765097e8141, type: 3}
   - <list_room>k__BackingField:
     - {fileID: 7854826782446590309, guid: 81109c0fce6a04540a090877b1e93338, type: 3}
+  - <list_room>k__BackingField:
+    - {fileID: 7854826782446590309, guid: 0fe632871a971a248bcc55a2b0ae5346, type: 3}
   depth_max: 64
   cam: {fileID: 330585545}
 --- !u!114 &985292092
@@ -7275,7 +7277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1418434408
 MeshRenderer:
   m_ObjectHideFlags: 0
