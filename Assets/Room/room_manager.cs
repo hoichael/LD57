@@ -8,7 +8,7 @@ public class room_manager : MonoBehaviour
 
     [Header("SETTINGS")]
     [SerializeField] List<room_layer_list> list_layer = new List<room_layer_list>();
-    [SerializeField] AnimationCurve curve_depth_by_layer;
+    //[SerializeField] AnimationCurve curve_depth_by_layer;
     [SerializeField] float depth_max;
     [SerializeField] Camera cam;
 
@@ -54,8 +54,8 @@ public class room_manager : MonoBehaviour
 
         room_current = idx_random;
 
-        init_override_data.layer = 0;
-        init_override_data.room = 0;
+        //init_override_data.layer = 0;
+        //init_override_data.room = 0;
 
         room room_new = Instantiate(list_layer[layer_current].list_room[idx_random], Vector3.zero, Quaternion.identity);
         room_new.init();     
@@ -63,15 +63,15 @@ public class room_manager : MonoBehaviour
 
         cam.backgroundColor = room_new.color_cam_bg;
 
-        set_new_cam_depth();
+        set_new_cam_depth(room_new.render_depth);
     }
 
-    void set_new_cam_depth()
+    void set_new_cam_depth(float depth_new)
     {
         g_refs.i.pl_cam_depth.set_depth_base(0.5f, true);
 
-        float factor = ((float)layer_max - (float)layer_current) / (float)layer_max;
-        float depth_new = depth_max * curve_depth_by_layer.Evaluate(factor);
+        //float factor = ((float)layer_max - (float)layer_current) / (float)layer_max;
+        //float depth_new = depth_max * curve_depth_by_layer.Evaluate(factor);
 
         if(layer_current == 0)
         {

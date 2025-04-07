@@ -537,6 +537,7 @@ MonoBehaviour:
   list_terrain:
   - {fileID: 1712916390828370738}
   <trans_pl_spawn_ref>k__BackingField: {fileID: 3965145335345651224}
+  <render_depth>k__BackingField: 32
   mat_terrain: {fileID: 2100000, guid: 04266d9b2b3d0ec4e93c9899fafbaffd, type: 2}
   <color_cam_bg>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &4393214904119512079

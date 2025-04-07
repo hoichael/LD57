@@ -9,8 +9,10 @@ public class room : MonoBehaviour
 
     [Header("SETTINGS")]
     [field:SerializeField] public Transform trans_pl_spawn_ref { get; private set; }
+    [field: SerializeField] public float render_depth { get; private set; }
     [SerializeField] Material mat_terrain;
     [field: SerializeField] public Color color_cam_bg { get; private set; } = Color.black;
+    
 
     void Start()
     {
