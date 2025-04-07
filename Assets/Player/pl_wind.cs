@@ -9,7 +9,8 @@ public class pl_wind : MonoBehaviour
     [SerializeField] pl_refs refs;
     [SerializeField] ui_circle circle_renderer;
     [SerializeField] AudioSource sfx_charge;
-    [SerializeField] List<AudioSource> list_sfx_release;
+    [SerializeField] AudioSource sfx_release_default;
+    [SerializeField] AudioSource sfx_release_overcharged;
     [SerializeField] pl_move move;
     [SerializeField] pl_jump jump;
 
@@ -92,6 +93,8 @@ public class pl_wind : MonoBehaviour
         circle_renderer.gameObject.SetActive(true);
         circle_renderer.update_circle(reticle_radius_min);
 
+        sfx_charge.Play();
+
         jump.toggle_can_jump(false);
     }
 
@@ -103,6 +106,20 @@ public class pl_wind : MonoBehaviour
 
         move.set_add_drag_ground(0);
         jump.toggle_can_jump(true);
+
+        sfx_charge.Stop();
+
+        bool killed_en = false;
+
+        float factor = charge_duration_current / charge_duration_max;
+
+        if (factor < 0.97f)
+        {
+            sfx_release_default.volume = Mathf.Lerp(0.1f, 0.4f, factor);
+            sfx_release_default.pitch = Mathf.Lerp(1.4f, 1f, factor);
+
+            sfx_release_default.Play();
+        }
 
         float halfextents = get_lerped_value(col_halfextents_min, col_halfextents_max);
 
@@ -126,11 +143,12 @@ public class pl_wind : MonoBehaviour
 
         for (int i = 0; i < hit_en_amount; i++)
         {
-            float factor = charge_duration_current / charge_duration_max;
-
             if(factor > 0.97f)
             {
                 arr_col_check[i].GetComponentInChildren<enemy>().handle_hit_by_pl_shoot();
+
+                killed_en = true;
+
                 break;
             }
             else
@@ -144,6 +162,21 @@ public class pl_wind : MonoBehaviour
                 factor -= (distance_factor * 0.9f);
 
                 arr_col_check[i].GetComponentInChildren<enemy>().handle_hit_by_pl_push(refs.cam.transform.forward, force, factor);
+            }
+        }
+
+        if (factor > 0.97f)
+        {
+            if(killed_en)
+            {
+                sfx_release_default.volume = 0.3f;
+                sfx_release_default.pitch = 1.2f;
+
+                sfx_release_default.Play();
+            }
+            else
+            {
+                sfx_release_overcharged.Play();
             }
         }
     }

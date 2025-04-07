@@ -43,6 +43,8 @@ public class enemy : MonoBehaviour
             rb.AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * (force * 0.27f), ForceMode.Impulse);
         }
 
+        audiosrc.Play();
+
         StartCoroutine(handle_push_duration(push_duration_max * intensity_factor));
     }
 
