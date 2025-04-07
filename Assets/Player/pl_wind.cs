@@ -18,9 +18,10 @@ public class pl_wind : MonoBehaviour
     [SerializeField] float reticle_radius_min, reticle_radius_max;
     [SerializeField] float cooldown_duration;
     [SerializeField] float col_halfextents_min, col_halfextents_max;
+    [SerializeField] float knockback_min, knockback_max;
     [SerializeField] LayerMask mask_hit;
 
-    const float col_depth_halfextents = 12; 
+    const float col_depth_halfextents = 10; 
 
     Collider[] arr_col_check = new Collider[33];
 
@@ -65,22 +66,12 @@ public class pl_wind : MonoBehaviour
         }
         else
         {
-            //float charge_factor = charge_duration_current / charge_duration_max;
-
-            //float reticle_radius_new = Mathf.Lerp(
-            //    reticle_radius_min,
-            //    reticle_radius_max,
-            //    curve_charge.Evaluate(charge_factor)
-            //    );
-
             circle_renderer.update_circle(get_lerped_value(reticle_radius_min, reticle_radius_max));
         }
     }
 
     void init_charge()
     {
-        print("wind CHARGE");
-
         currently_charging = true;
 
         charge_duration_current = 0;
@@ -91,30 +82,44 @@ public class pl_wind : MonoBehaviour
 
     void handle_release()
     {
-        print("wind RELEASE");
-
         currently_charging = false;
         circle_renderer.gameObject.SetActive(false);
         cooldown_timer_current = 0;
 
         float halfextents = get_lerped_value(col_halfextents_min, col_halfextents_max);
 
-        dev_ref_cube.position = refs.cam.transform.position + refs.cam.transform.forward * col_depth_halfextents;
-        dev_ref_cube.rotation = Quaternion.LookRotation(refs.cam.transform.forward);
-        dev_ref_cube.localScale = new Vector3(
-            halfextents * 2,
-            halfextents * 2,
-            col_depth_halfextents * 2
+        //dev_ref_cube.position = refs.cam.transform.position + refs.cam.transform.forward * col_depth_halfextents;
+        //dev_ref_cube.rotation = Quaternion.LookRotation(refs.cam.transform.forward);
+        //dev_ref_cube.localScale = new Vector3(
+        //    halfextents * 2,
+        //    halfextents * 2,
+        //    col_depth_halfextents * 2
+        //    );
+
+        //Debug.Break();
+
+        Vector3 halfextents_final = new Vector3(
+            halfextents,
+            halfextents,
+            col_depth_halfextents
             );
 
-        Debug.Break();
+        int hit_en_amount = Physics.OverlapBoxNonAlloc(refs.cam.transform.position + refs.cam.transform.forward * col_depth_halfextents, halfextents_final, arr_col_check, Quaternion.LookRotation(refs.cam.transform.forward), mask_hit);
 
-        //int hit_en_amount = Physics.OverlapBoxNonAlloc(refs.cam.transform.position + refs.cam.transform.forward * col_halfextents.z, col_halfextents, arr_col_check, Quaternion.LookRotation(refs.cam.transform.forward), mask_hit);
+        for (int i = 0; i < hit_en_amount; i++)
+        {
+            float factor = charge_duration_current / charge_duration_max;
 
-        //for (int i = 0; i < hit_en_amount; i++)
-        //{
-        //    arr_col_check[i].GetComponentInChildren<enemy>().handle_hit_by_pl_push(refs.cam.transform.forward);
-        //}
+            float force = Mathf.Clamp(knockback_max * factor, knockback_min, knockback_max);
+            force += Random.Range(-2f, 3f);
+
+            float distance_factor = Vector3.Distance(refs.cam.transform.position, arr_col_check[i].transform.position) / (col_depth_halfextents * 2);
+
+            force *= (1 - distance_factor);
+            factor -= distance_factor;
+
+            arr_col_check[i].GetComponentInChildren<enemy>().handle_hit_by_pl_push(refs.cam.transform.forward, force, factor);
+        }
     }
 
     #region UTIL

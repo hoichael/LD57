@@ -16,7 +16,7 @@ public class pl_hand_push : pl_hand_base
 
         for(int i = 0; i < hit_en_amount; i++)
         {
-            arr_col_check[i].GetComponentInChildren<enemy>().handle_hit_by_pl_push(refs.cam.transform.forward);
+            //arr_col_check[i].GetComponentInChildren<enemy>().handle_hit_by_pl_push(refs.cam.transform.forward);
         }
     }
 }

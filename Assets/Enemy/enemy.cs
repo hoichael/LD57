@@ -10,6 +10,8 @@ public class enemy : MonoBehaviour
     [SerializeField] AudioSource audiosrc;
     [SerializeField] float pl_chase_dist;
 
+    const float push_duration_max = 4f;
+
     bool killed_pl;
     bool currently_being_pushed;
 
@@ -25,13 +27,23 @@ public class enemy : MonoBehaviour
         Destroy(rb.gameObject);
     }
 
-    public void handle_hit_by_pl_push(Vector3 dir)
+    public void handle_hit_by_pl_push(Vector3 dir, float force, float intensity_factor)
     {
         currently_being_pushed = true;
-        rb.AddForce(dir.normalized * 20, ForceMode.Impulse);
-        rb.AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * 5, ForceMode.Impulse);
 
-        StartCoroutine(handle_push_duration());
+        // apply main force
+        rb.AddForce(dir.normalized * force, ForceMode.Impulse);
+
+        // apply variance force based on dir to pl
+        Vector3 dir_to_pl = (g_refs.i.pl_trans.position - transform.position).normalized;
+        rb.AddForce(-dir_to_pl.normalized * (force * 0.5f), ForceMode.Impulse);
+
+        if(intensity_factor > 0.1f)
+        {
+            rb.AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * (force * 0.25f), ForceMode.Impulse);
+        }
+
+        StartCoroutine(handle_push_duration(push_duration_max * intensity_factor));
     }
 
     void FixedUpdate()
@@ -80,9 +92,9 @@ public class enemy : MonoBehaviour
         }
     }
 
-    IEnumerator handle_push_duration()
+    IEnumerator handle_push_duration(float duration)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(duration);
 
         rb.angularVelocity = Vector3.zero;
         currently_being_pushed = false;
