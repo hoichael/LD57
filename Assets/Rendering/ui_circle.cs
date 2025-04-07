@@ -7,14 +7,14 @@ public class ui_circle : MonoBehaviour
 
     [Header("SETTINGS")]
     [SerializeField] int subdivisions;
-    [SerializeField] float radius;
+    [SerializeField] float radius_default;
 
-    void Update()
+    void Start()
     {
-        update_circle();
+        update_circle(radius_default);    
     }
 
-    void update_circle()
+    public void update_circle(float radius)
     {
         line.positionCount = subdivisions;
 
