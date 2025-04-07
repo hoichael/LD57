@@ -7,6 +7,7 @@ public class pl_move : MonoBehaviour
     [Header("REFS")]
     [SerializeField] pl_refs refs;
     [SerializeField] List<AudioSource> list_footsteps_src;
+    [SerializeField] AudioSource hit_ground_src;
 
     [Header("SETTINGS")]
     [SerializeField] float move_force_ground;
@@ -21,6 +22,8 @@ public class pl_move : MonoBehaviour
 
     float drag_add_ground_current;
 
+    bool grounded_last_frame = true;
+
     public void set_add_drag_ground(float value)
     {
         drag_add_ground_current = value;
@@ -33,12 +36,20 @@ public class pl_move : MonoBehaviour
             refs.gravity.enabled = false;
             refs.rb.linearDamping = drag_ground + drag_add_ground_current;
             apply_move_ground(get_dir());
+            
+            if(!grounded_last_frame)
+            {
+                hit_ground_src.Play();
+            }
+
+            grounded_last_frame = true;
         }
         else
         {
             refs.gravity.enabled = true;
             refs.rb.linearDamping = drag_air;
             apply_move_air(get_dir());
+            grounded_last_frame = false;
         }
     }
 
@@ -66,18 +77,23 @@ public class pl_move : MonoBehaviour
         {
             refs.rb.AddForce(dir * move_force_ground);
 
-            if(Time.time - footstep_last_time > footsteps_interval)
+            handle_footstep_sfx();
+        }
+    }
+
+    void handle_footstep_sfx()
+    {
+        if (Time.time - footstep_last_time > footsteps_interval)
+        {
+            footstep_last_idx++;
+
+            if (footstep_last_idx == list_footsteps_src.Count)
             {
-                footstep_last_idx++;
-
-                if(footstep_last_idx == list_footsteps_src.Count)
-                {
-                    footstep_last_idx = 0;
-                }
-
-                list_footsteps_src[footstep_last_idx].Play();
-                footstep_last_time = Time.time;
+                footstep_last_idx = 0;
             }
+
+            list_footsteps_src[footstep_last_idx].Play();
+            footstep_last_time = Time.time;
         }
     }
 

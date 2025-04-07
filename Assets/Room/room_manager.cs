@@ -73,7 +73,8 @@ public class room_manager : MonoBehaviour
         //float factor = ((float)layer_max - (float)layer_current) / (float)layer_max;
         //float depth_new = depth_max * curve_depth_by_layer.Evaluate(factor);
 
-        if(layer_current == 0)
+        //if(layer_current == 0)
+        if(depth_new > 56)
         {
             g_refs.i.pl_cam_depth.set_depth_base(depth_new, true);
         }
