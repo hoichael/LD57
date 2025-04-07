@@ -1186,6 +1186,7 @@ MonoBehaviour:
   sfx_charge: {fileID: 0}
   list_sfx_release: []
   move: {fileID: 412763677}
+  jump: {fileID: 412763680}
   curve_charge:
     serializedVersion: 2
     m_Curve:
@@ -1252,7 +1253,7 @@ MonoBehaviour:
   reticle_radius_max: 0.2
   cooldown_duration: 1
   col_halfextents_min: 0.2
-  col_halfextents_max: 2.8
+  col_halfextents_max: 2.7
   knockback_min: 10
   knockback_max: 38
   drag_add_max: 11

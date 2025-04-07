@@ -11,6 +11,7 @@ public class pl_wind : MonoBehaviour
     [SerializeField] AudioSource sfx_charge;
     [SerializeField] List<AudioSource> list_sfx_release;
     [SerializeField] pl_move move;
+    [SerializeField] pl_jump jump;
 
     [Header("SETTINGS")]
     [SerializeField] AnimationCurve curve_charge;
@@ -90,6 +91,8 @@ public class pl_wind : MonoBehaviour
 
         circle_renderer.gameObject.SetActive(true);
         circle_renderer.update_circle(reticle_radius_min);
+
+        jump.toggle_can_jump(false);
     }
 
     void handle_release()
@@ -99,6 +102,7 @@ public class pl_wind : MonoBehaviour
         cooldown_timer_current = 0;
 
         move.set_add_drag_ground(0);
+        jump.toggle_can_jump(true);
 
         float halfextents = get_lerped_value(col_halfextents_min, col_halfextents_max);
 

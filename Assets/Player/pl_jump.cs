@@ -13,9 +13,16 @@ public class pl_jump : MonoBehaviour
 
     int sfx_last_idx;
 
+    bool can_jump = true;
+
+    public void toggle_can_jump(bool toggle)
+    {
+        can_jump = toggle;
+    }
+
     void Update()
     {
-        if (InputSystem.actions.FindAction("Jump").WasPressedThisFrame() && refs.groundcheck.is_grounded())
+        if (InputSystem.actions.FindAction("Jump").WasPressedThisFrame() && refs.groundcheck.is_grounded() && can_jump)
         {
             exec_jump();
             handle_sfx();
