@@ -11,6 +11,7 @@ public class room_manager : MonoBehaviour
     //[SerializeField] AnimationCurve curve_depth_by_layer;
     [SerializeField] float depth_max;
     [SerializeField] Camera cam;
+    [SerializeField] pl_cam_rot cam_rot;
 
     //[SerializeField] Vector2 DEV_init_room_override;
 
@@ -21,7 +22,7 @@ public class room_manager : MonoBehaviour
 
     void Start()
     {
-        enter_new_room();
+        enter_new_room(true);
         //DEV_init_room_override = Vector2.zero;
     }
 
@@ -34,10 +35,10 @@ public class room_manager : MonoBehaviour
     public void on_room_exit()
     {
         print("ROOM EXIT! (from manager)");
-        enter_new_room();
+        enter_new_room(false);
     }
 
-    void enter_new_room()
+    void enter_new_room(bool from_start)
     {
         int idx_random;
 
@@ -64,6 +65,11 @@ public class room_manager : MonoBehaviour
         cam.backgroundColor = room_new.color_cam_bg;
 
         set_new_cam_depth(room_new.render_depth);
+
+        if(from_start && layer_current == 1)
+        {
+            cam_rot.randomize_look_dir();
+        }
     }
 
     void set_new_cam_depth(float depth_new)

@@ -81,6 +81,16 @@ public class pl_cam_rot : MonoBehaviour
         }
     }
 
+    public void randomize_look_dir()
+    {
+        float random_rot_y = Random.Range(0, 360);
+        rot_current_y = random_rot_y;
+
+        cam_holder.localRotation = Quaternion.Euler(rot_current_x, rot_current_y, 0);
+
+        refs.trans_orientation_ref.rotation = Quaternion.Euler(0, rot_current_y, 0);
+    }
+
     IEnumerator handle_init_cam_lock_timer()
     {
         cam_locked = true;

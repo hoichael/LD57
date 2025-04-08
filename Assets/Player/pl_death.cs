@@ -10,6 +10,9 @@ public class pl_death : MonoBehaviour
     [SerializeField] GameObject text;
     [SerializeField] GameObject reticle;
     [SerializeField] List<MonoBehaviour> list_script_to_disable;
+
+    [SerializeField] AudioSource src_death_instant, src_death_text;
+
     bool dead;
 
     public void kill_player(Vector3 pos_killer, bool instant)
@@ -23,6 +26,8 @@ public class pl_death : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        src_death_instant.Play();
 
         cam_rot.init_death_rot(pos_killer);
 
@@ -43,8 +48,8 @@ public class pl_death : MonoBehaviour
 
     IEnumerator handle_text_delay()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         text.SetActive(true);
-        // also play some sfx
+        src_death_text.Play();
     }
 }
