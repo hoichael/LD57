@@ -55,8 +55,8 @@ public class room_manager : MonoBehaviour
 
         room_current = idx_random;
 
-        //init_override_data.layer = 0;
-        //init_override_data.room = 0;
+        init_override_data.layer = 0;
+        init_override_data.room = 0;
 
         room room_new = Instantiate(list_layer[layer_current].list_room[idx_random], Vector3.zero, Quaternion.identity);
         room_new.init();     

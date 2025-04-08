@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refs: {fileID: 2079012244}
   cam_holder: {fileID: 1797408552}
-  sens: 0.1
+  sens: 0.3
   sens_min: 0.005
   sens_max: 2
 --- !u!114 &412763677
@@ -2018,7 +2018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &673662837
 Transform:
   m_ObjectHideFlags: 0
